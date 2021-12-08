@@ -66,3 +66,63 @@
   margin-right: 5vw;
 
 }
+.movie-list{
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1rem;
+  justify-content: center;
+}
+.movies-card{
+  width:20vw;
+  margin: 1rem;
+  color:white;
+  position:relative;
+}
+.movie-title{
+  position: absolute;
+  top:1rem;
+  left:1rem;
+  color:white;
+}
+.movie-img{
+  height:40vh;
+  width:20vw;
+
+}
+.movie-btn{
+  position: absolute;
+  bottom:2rem;
+}
+.fav-genre{
+  padding: 3rem;
+}
+.my-table{
+  padding:2rem;
+}
+@media screen and (max-width: 400px){
+  .banner-card{
+    height: 30vh;
+  }
+  .banner-img{
+    height: 30vh;
+  }
+  .banner-title{
+    top:12vh;
+    left :5vh;
+  }
+  .banner-text{
+    top:17vh;
+    left:5vh;
+  }
+  .movies-card{
+    width:40vw;
+    margin: 0.1rem;
+  }
+  .movie-btn{
+      width:80%;
+  }
+  .movie-img{
+    height: 40vh;
+    width: 40vw;
+  }
+}
