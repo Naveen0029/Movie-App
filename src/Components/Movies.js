@@ -8,7 +8,8 @@ export default class Movies extends Component{
             hover:' ',
             parr:[1],
             currPage:1,
-            movies:[]
+            movies:[],
+            favourites:[]
         }
         
     }
@@ -54,6 +55,25 @@ export default class Movies extends Component{
         }
 
     }
+    handleFav =(movie) =>{
+        let prevdata=JSON.parse(localStorage.getItem('movies-app')|| '[]');
+        if(this.state.favourites.includes(movie.id)){
+            prevdata=prevdata.filter((m)=>m.id!=movie.id)
+        }
+        else{
+            prevdata.push(movie);
+        }
+        localStorage.setItem('movies-app',JSON.stringify(prevdata));
+        this.handleFavState();
+        console.log(prevdata);
+    }
+    handleFavState= ()=>{
+        let prevdata=JSON.parse(localStorage.getItem('movies-app')|| '[]');
+        let temp=prevdata.map((obj)=>obj.id);
+        this.setState({
+            favourites:[...temp]
+        })
+    }
     render(){
 
         return (
@@ -76,7 +96,7 @@ export default class Movies extends Component{
                                             {/*<p className ="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>*/}
                                             <div className="btn-wrapper" style={{display: 'flex', width: '100%',justifyContent: 'center'}}>
                                                 {
-                                                    this.state.hover === movieObj.id&&<a href="#" class="btn btn-primary movie-btn">Add To Favourites</a>
+                                                    this.state.hover === movieObj.id&&<a href="#" class="btn btn-primary movie-btn" onClick={()=> this.handleFav(movieObj)}>{this.state.favourites.includes(movieObj.id)?"Remove From Favourites":"Add To Favourites"}</a>
                                                 }
                                                 
                                             </div>
