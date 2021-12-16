@@ -98,6 +98,7 @@
 }
 .my-table{
   padding:2rem;
+  overflow: auto;
 }
 @media screen and (max-width: 400px){
   .banner-card{
